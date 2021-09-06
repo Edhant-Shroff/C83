@@ -26,14 +26,21 @@ canvas.addEventListener("touchmove", myTouchMove);
 function myTouchMove(e) {
     currentX = e.touches[0].clientX - canvas.offsetLeft;
     currentY = e.touches[0].clientY - canvas.offsetTop;
+    var Color = document.getElementById("color").value;
+    var Width = document.getElementById("width").value;
 
     ctx.beginPath();
-    ctx.strokeStyle = "yellow";
-    ctx.lineWidth = 5;
-    ctx.moveTo(oldX,oldY);
-    ctx.lineTo(currentX,currentY)
+
+    ctx.strokeStyle = Color;
+    ctx.lineWidth = Width;
+    ctx.moveTo(oldX, oldY);
+    ctx.lineTo(currentX, currentY)
     ctx.stroke();
 
-    oldX=currentX;
-    oldY=currentY;
+    oldX = currentX;
+    oldY = currentY;
+}
+
+function clear_area() { console.log("hi");
+    ctx.clearRect(0,0,ctx.canvas.width,ctx.canvas.height);
 }
